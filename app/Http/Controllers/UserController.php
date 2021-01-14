@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('id', '!=', auth()->id())->get();
 
         return view('users.users', [ 
             'users' => $users
@@ -43,14 +43,22 @@ class UserController extends Controller
         // return $request;
 
         $user = new User();
-        $user->first_name = $request['first_name'];
-        $user->last_name = $request['last_name'];
-        $user->email = $request['email'];
-        $user->password = Hash::make($request['password']);
-        $user->phone_number = $request['phone_number'];
-        $user->status = $request['status'];
+        
+        // $user->first_name = $request['first_name'];
+        // $user->last_name = $request['last_name'];
+        // $user->email = $request['email'];
+        // $user->password = Hash::make($request['password']);
+        // $user->phone_number = $request['phone_number'];
+        // $user->status = $request['status'];
 
-        $user->save();
+        $user->create([
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'phone_number' => $request['phone_number'],
+            'status' => $request['status']
+        ]);
 
         return redirect('/users');
     }
@@ -69,21 +77,6 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function edit($id)
-    // {
-    //     $user = User::find($id);
-        
-    //     return view('users.edit', [
-    //         'user' => $user
-    //     ]);
-    // }
 
     /**
      * Update the specified resource in storage.
