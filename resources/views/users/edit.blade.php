@@ -15,7 +15,7 @@
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <input type="text" name="first_name" id="first_name" autocomplete="given-name" 
                         value="{{ $user->first_name }}"
-                        class="max-w-lg py-1 block w-full shadow-sm focus:ring-indigo-500 border focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                        class="max-w-lg py-1 block w-full shadow-sm focus:ring-indigo-500 border focus:border-gray-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                   @error('first_name')
                     <span class="text-red-500" role="alert">
                         <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <input type="text" name="last_name" id="last_name" autocomplete="family-name"
                         value="{{ $user->last_name }}"
-                        class="max-w-lg py-1 block w-full shadow-sm border focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                        class="max-w-lg py-1 block w-full shadow-sm border focus:ring-indigo-500 focus:border-gray-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                   @error('last_name')
                     <span class="text-red-500" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <input id="email" name="email" type="email" autocomplete="email"
                             value="{{ $user->email }}"
-                            class="border py-1 block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
+                            class="border py-1 block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-gray-500 sm:text-sm border-gray-300 rounded-md">
                   @error('email')
                     <span class="text-red-500" role="alert">
                       <strong>{{ $message }}</strong>
@@ -62,7 +62,7 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <input id="password" name="password" type="password" autocomplete="password" 
-                            class="border py-1 block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
+                            class="border py-1 block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-gray-500 sm:text-sm border-gray-300 rounded-md">
                   @error('password')
                     <span class="text-red-500" role="alert">
                       <strong>{{ $message }}</strong>
@@ -78,10 +78,9 @@
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <select id="status" name="status" autocomplete="status"
                             value={{ $user->status }}
-                            class="border py-1 max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                    <option value="Staff">Staff</option>
-                    <option value="Admin">Admin</option>
-                    {{-- <option>{{ $user->status }}</option> --}}
+                            class="border py-1 max-w-lg block focus:ring-indigo-500 focus:border-gray-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                    <option <?= $user->status === 'Admin' ? 'selected' : '' ?>>Admin</option>
+                    <option <?= $user->status === 'Staff' ? 'selected' : '' ?>>Staff</option>
                   </select>
                   @error('status')
                     <span class="text-red-500" role="alert">
@@ -98,7 +97,7 @@
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <input type="number" name="phone_number" id="phone_number" autocomplete="phone_number-address" 
                         value="{{ $user->phone_number }}"
-                        class="border py-1 block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
+                        class="border py-1 block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-gray-500 sm:text-sm border-gray-300 rounded-md">
                   @error('phone_number')
                     <span class="text-red-500" role="alert">
                       <strong>{{ $message }}</strong>
