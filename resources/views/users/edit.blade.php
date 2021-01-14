@@ -76,7 +76,8 @@
                   Status
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
-                  <select id="status" name="status" autocomplete="status"
+                  <select  {{ Auth::user()->status == 'Admin' ? '' : 'disabled' }} 
+                            id="status" name="status" autocomplete="status"
                             value={{ $user->status }}
                             class="border py-1 max-w-lg block focus:ring-indigo-500 focus:border-gray-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     <option <?= $user->status === 'Admin' ? 'selected' : '' ?>>Admin</option>
