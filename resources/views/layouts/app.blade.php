@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Alpine JS --}}
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -28,7 +31,6 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-                    <!-- This example requires Tailwind CSS v2.0+ -->
                     <nav class="bg-gray-800">
                       <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                         <div class="relative flex items-center justify-between h-16">
