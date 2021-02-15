@@ -85,7 +85,14 @@
 
 <script>
 export default {
+    data() {
+        return {
 
+        }
+    },
+    created() {
+        console.log(this.$axios);
+    }
 }
 </script>
 
